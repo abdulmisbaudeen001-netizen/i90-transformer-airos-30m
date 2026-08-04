@@ -349,8 +349,8 @@ class AIROSEngine:
         if ohlc_df is None or len(ohlc_df) == 0:
             return {"error": "No OHLC data", "direction": "NO_TRADE", "confidence": 0.0}
 
-        warmup     = 25
-        min_needed = self.seq + warmup           # 65 bars minimum
+
+        min_needed = self.seq                    # exactly 40 bars required
         if len(ohlc_df) < min_needed:
             return {"direction": "NO_TRADE",
                     "error": f"Need {min_needed} bars, got {len(ohlc_df)}",
